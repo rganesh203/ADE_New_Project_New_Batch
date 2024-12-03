@@ -1,0 +1,30 @@
+[
+    {
+        "p_rel_url" : "https://github.com/rganesh203/ADE_New_Project_New_Batch/tree/main/CSV",
+        "p_sink_folder" : "sales_csv",
+        "p_sink_file" : ["cities.csv","countries.csv","states.csv"]
+    },
+    {
+        "p_rel_url" : "https://github.com/rganesh203/ADE_New_Project_New_Batch/tree/main/JSON",
+        "p_sink_folder" : "sales_JSON",
+        "p_sink_file" : ["cities.json","countries+cities.json","countries+states+cities.json"
+						"countries+states.json","countries.json","states+cities.json","states.json"]
+    },
+    {
+        "p_rel_url" : "https://github.com/rganesh203/ADE_New_Project_New_Batch/tree/main/SQL",
+        "p_sink_folder" : "sales_SQL",
+        "p_sink_file" : ["cities.sql","countries.sql","states.sql","world.sql"]
+    },
+    {
+        "p_rel_url" : "https://github.com/rganesh203/ADE_New_Project_New_Batch/tree/main/XML",
+        "p_sink_folder" : "sales_XML",
+        "p_sink_file" : ["cities.xml","countries+cities.xml","countries+states+cities.xml",
+		                "countries+states.xml","countries.xml","states+cities.xml","states.xml"]
+    },
+    {
+        "p_rel_url" : "https://github.com/rganesh203/ADE_New_Project_New_Batch/tree/main/YML",
+        "p_sink_folder" : "sales_YML",
+        "p_sink_file" : ["cities.yml","countries+cities.yml","countries+states+cities.yml",
+		                "countries+states.yml","countries.yml","states+cities.yml","states.yml"]
+    }
+]
