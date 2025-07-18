@@ -1,30 +1,142 @@
 [
-    {
-        "p_rel_url" : "https://github.com/rganesh203/ADE_New_Project_New_Batch/tree/main/CSV",
-        "p_sink_folder" : "sales_csv",
-        "p_sink_file" : ["cities.csv","countries.csv","states.csv"]
-    },
-    {
-        "p_rel_url" : "https://github.com/rganesh203/ADE_New_Project_New_Batch/tree/main/JSON",
-        "p_sink_folder" : "sales_JSON",
-        "p_sink_file" : ["cities.json","countries+cities.json","countries+states+cities.json"
-						"countries+states.json","countries.json","states+cities.json","states.json"]
-    },
-    {
-        "p_rel_url" : "https://github.com/rganesh203/ADE_New_Project_New_Batch/tree/main/SQL",
-        "p_sink_folder" : "sales_SQL",
-        "p_sink_file" : ["cities.sql","countries.sql","states.sql","world.sql"]
-    },
-    {
-        "p_rel_url" : "https://github.com/rganesh203/ADE_New_Project_New_Batch/tree/main/XML",
-        "p_sink_folder" : "sales_XML",
-        "p_sink_file" : ["cities.xml","countries+cities.xml","countries+states+cities.xml",
-		                "countries+states.xml","countries.xml","states+cities.xml","states.xml"]
-    },
-    {
-        "p_rel_url" : "https://github.com/rganesh203/ADE_New_Project_New_Batch/tree/main/YML",
-        "p_sink_folder" : "sales_YML",
-        "p_sink_file" : ["cities.yml","countries+cities.yml","countries+states+cities.yml",
-		                "countries+states.yml","countries.yml","states+cities.yml","states.yml"]
-    }
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/CSV/cities.csv",
+    "p_sink_folder": "csv",
+    "p_sink_file": "cities.csv"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/CSV/countries.csv",
+    "p_sink_folder": "csv",
+    "p_sink_file": "countries.csv"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/CSV/states.csv",
+    "p_sink_folder": "csv",
+    "p_sink_file": "states.csv"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/JSON/cities.json",
+    "p_sink_folder": "JSON",
+    "p_sink_file": "cities.json"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/JSON/countries+cities.json",
+    "p_sink_folder": "JSON",
+    "p_sink_file": "countries+cities.json"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/JSON/countries+states+cities.json",
+    "p_sink_folder": "JSON",
+    "p_sink_file": "countries+states+cities.json"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/JSON/countries+states.json",
+    "p_sink_folder": "JSON",
+    "p_sink_file": "countries+states.json"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/JSON/countries.json",
+    "p_sink_folder": "JSON",
+    "p_sink_file": "countries.json"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/JSON/states+cities.json",
+    "p_sink_folder": "JSON",
+    "p_sink_file": "states+cities.json"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/JSON/states.json",
+    "p_sink_folder": "JSON",
+    "p_sink_file": "states.json"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/SQL/cities.sql",
+    "p_sink_folder": "SQL",
+    "p_sink_file": "cities.sql"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/SQL/countries.sql",
+    "p_sink_folder": "SQL",
+    "p_sink_file": "countries.sql"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/SQL/states.sql",
+    "p_sink_folder": "SQL",
+    "p_sink_file": "states.sql"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/SQL/world.sql",
+    "p_sink_folder": "SQL",
+    "p_sink_file": "world.sql"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/XML/cities.xml",
+    "p_sink_folder": "XML",
+    "p_sink_file": "cities.xml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/XML/countries+cities.xml",
+    "p_sink_folder": "XML",
+    "p_sink_file": "countries+cities.xml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/XML/countries+states+cities.xml",
+    "p_sink_folder": "XML",
+    "p_sink_file": "countries+states+cities.xml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/XML/countries+states.xml",
+    "p_sink_folder": "XML",
+    "p_sink_file": "countries+states.xml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/XML/countries.xml",
+    "p_sink_folder": "XML",
+    "p_sink_file": "countries.xml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/XML/states+cities.xml",
+    "p_sink_folder": "XML",
+    "p_sink_file": "states+cities.xml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/XML/states.xml",
+    "p_sink_folder": "XML",
+    "p_sink_file": "states.xml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/YML/cities.yml",
+    "p_sink_folder": "YML",
+    "p_sink_file": "cities.yml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/YML/countries+cities.yml",
+    "p_sink_folder": "YML",
+    "p_sink_file": "countries+cities.yml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/YML/countries+states+cities.yml",
+    "p_sink_folder": "YML",
+    "p_sink_file": "countries+states+cities.yml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/YML/countries+states.yml",
+    "p_sink_folder": "YML",
+    "p_sink_file": "countries+states.yml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/YML/countries.yml",
+    "p_sink_folder": "YML",
+    "p_sink_file": "countries.yml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/YML/states+cities.yml",
+    "p_sink_folder": "YML",
+    "p_sink_file": "states+cities.yml"
+  },
+  {
+    "p_rel_url": "rganesh203/ADE_New_Project_New_Batch/main/YML/states.yml",
+    "p_sink_folder": "YML",
+    "p_sink_file": "states.yml"
+  }
 ]
