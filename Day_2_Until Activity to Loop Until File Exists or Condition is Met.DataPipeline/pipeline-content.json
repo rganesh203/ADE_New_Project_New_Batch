@@ -1,0 +1,248 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Until",
+        "typeProperties": {
+          "expression": {
+            "value": "@variables('checkfile')",
+            "type": "Expression"
+          },
+          "timeout": "0.12:00:00",
+          "activities": [
+            {
+              "type": "GetMetadata",
+              "typeProperties": {
+                "datasetSettings": {
+                  "type": "Binary",
+                  "typeProperties": {
+                    "location": {
+                      "type": "LakehouseLocation",
+                      "folderPath": "Emp_Dept",
+                      "fileName": "dept.csv"
+                    }
+                  },
+                  "linkedService": {
+                    "name": "Lakehouse_for_files",
+                    "properties": {
+                      "type": "Lakehouse",
+                      "typeProperties": {
+                        "artifactId": "0db3ba47-3a72-939c-4965-4ba64ea02a8a",
+                        "workspaceId": "00000000-0000-0000-0000-000000000000",
+                        "rootFolder": "Files"
+                      },
+                      "annotations": []
+                    }
+                  },
+                  "annotations": []
+                },
+                "fieldList": [
+                  "exists"
+                ],
+                "storeSettings": {
+                  "type": "LakehouseReadSettings",
+                  "enablePartitionDiscovery": false
+                },
+                "formatSettings": {
+                  "type": "BinaryReadSettings"
+                }
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Get Metadata1",
+              "dependsOn": []
+            },
+            {
+              "type": "IfCondition",
+              "typeProperties": {
+                "expression": {
+                  "value": "@activity('Get Metadata1').output.exists",
+                  "type": "Expression"
+                },
+                "ifTrueActivities": [
+                  {
+                    "type": "Copy",
+                    "typeProperties": {
+                      "source": {
+                        "type": "DelimitedTextSource",
+                        "formatSettings": {
+                          "type": "DelimitedTextReadSettings"
+                        },
+                        "storeSettings": {
+                          "type": "LakehouseReadSettings",
+                          "recursive": true,
+                          "enablePartitionDiscovery": false
+                        },
+                        "datasetSettings": {
+                          "type": "DelimitedText",
+                          "typeProperties": {
+                            "location": {
+                              "type": "LakehouseLocation",
+                              "folderPath": "Emp_Dept",
+                              "fileName": "dept.csv"
+                            },
+                            "columnDelimiter": ",",
+                            "quoteChar": "\"",
+                            "escapeChar": "\\",
+                            "firstRowAsHeader": true
+                          },
+                          "schema": [],
+                          "linkedService": {
+                            "name": "Lakehouse_for_files",
+                            "properties": {
+                              "type": "Lakehouse",
+                              "typeProperties": {
+                                "artifactId": "0db3ba47-3a72-939c-4965-4ba64ea02a8a",
+                                "workspaceId": "00000000-0000-0000-0000-000000000000",
+                                "rootFolder": "Files"
+                              },
+                              "annotations": []
+                            }
+                          },
+                          "annotations": []
+                        }
+                      },
+                      "sink": {
+                        "type": "DataWarehouseSink",
+                        "allowCopyCommand": true,
+                        "copyCommandSettings": {},
+                        "datasetSettings": {
+                          "type": "DataWarehouseTable",
+                          "typeProperties": {
+                            "schema": "dbo",
+                            "table": "department"
+                          },
+                          "schema": [],
+                          "linkedService": {
+                            "name": "Warehouse_semantic_model",
+                            "properties": {
+                              "type": "DataWarehouse",
+                              "typeProperties": {
+                                "artifactId": "c758c971-af63-44cf-a4b2-41f66bd2c7d5",
+                                "endpoint": "6a62gxp7mqtuvap26i7bqlvmim-csr3i4nk22puvdkyeewkn3d2zy.datawarehouse.fabric.microsoft.com",
+                                "workspaceId": "71b4a314-d6aa-4a9f-8d58-212ca6ec7ace"
+                              },
+                              "annotations": []
+                            }
+                          },
+                          "annotations": []
+                        }
+                      },
+                      "translator": {
+                        "type": "TabularTranslator",
+                        "mappings": [
+                          {
+                            "source": {
+                              "name": "dept_id",
+                              "type": "String",
+                              "physicalType": "String"
+                            },
+                            "sink": {
+                              "name": "dept_id",
+                              "physicalType": "int"
+                            }
+                          },
+                          {
+                            "source": {
+                              "name": "dept_name",
+                              "type": "String",
+                              "physicalType": "String"
+                            },
+                            "sink": {
+                              "name": "dept_name",
+                              "physicalType": "varchar",
+                              "length": "255"
+                            }
+                          },
+                          {
+                            "source": {
+                              "name": "location",
+                              "type": "String",
+                              "physicalType": "String"
+                            },
+                            "sink": {
+                              "name": "location",
+                              "physicalType": "varchar",
+                              "length": "255"
+                            }
+                          }
+                        ],
+                        "typeConversion": true,
+                        "typeConversionSettings": {
+                          "allowDataTruncation": true,
+                          "treatBooleanAsNumber": false
+                        }
+                      },
+                      "enableStaging": true
+                    },
+                    "policy": {
+                      "timeout": "0.12:00:00",
+                      "retry": 0,
+                      "retryIntervalInSeconds": 30,
+                      "secureInput": false,
+                      "secureOutput": false
+                    },
+                    "name": "Copy data1",
+                    "dependsOn": []
+                  },
+                  {
+                    "type": "SetVariable",
+                    "typeProperties": {
+                      "variableName": "checkfile",
+                      "value": true
+                    },
+                    "policy": {
+                      "secureInput": false,
+                      "secureOutput": false
+                    },
+                    "name": "Set variable1",
+                    "dependsOn": [
+                      {
+                        "activity": "Copy data1",
+                        "dependencyConditions": [
+                          "Succeeded"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "ifFalseActivities": [
+                  {
+                    "type": "Wait",
+                    "typeProperties": {
+                      "waitTimeInSeconds": 10
+                    },
+                    "name": "Wait1",
+                    "dependsOn": []
+                  }
+                ]
+              },
+              "name": "If Condition1",
+              "dependsOn": [
+                {
+                  "activity": "Get Metadata1",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "name": "Until1",
+        "dependsOn": []
+      }
+    ],
+    "variables": {
+      "checkfile": {
+        "type": "Boolean",
+        "defaultValue": false
+      }
+    }
+  }
+}
