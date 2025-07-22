@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Day_2_Until Activity to Loop Until File Exists or Condition is Met"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "44766bdd-0c40-950f-478d-24dab21ddbc2"
+  }
+}
