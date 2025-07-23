@@ -1,0 +1,100 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Set variable1",
+        "type": "SetVariable",
+        "dependsOn": [],
+        "policy": {
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "variableName": "string_1",
+          "value": "value"
+        }
+      },
+      {
+        "name": "Set variable2",
+        "type": "SetVariable",
+        "dependsOn": [
+          {
+            "activity": "Set variable1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "variableName": "string_2",
+          "value": {
+            "value": "@pipeline().PipelineName",
+            "type": "Expression"
+          }
+        }
+      },
+      {
+        "name": "Set variable3",
+        "type": "SetVariable",
+        "dependsOn": [
+          {
+            "activity": "Append variable1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "variableName": "array_2",
+          "value": {
+            "value": "@variables('array_1')",
+            "type": "Expression"
+          }
+        }
+      },
+      {
+        "name": "Append variable1",
+        "type": "AppendVariable",
+        "dependsOn": [
+          {
+            "activity": "Set variable2",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "typeProperties": {
+          "variableName": "array_1",
+          "value": "C"
+        }
+      }
+    ],
+    "variables": {
+      "string_1": {
+        "type": "String",
+        "defaultValue": "text"
+      },
+      "string_2": {
+        "type": "String"
+      },
+      "array_1": {
+        "type": "Array",
+        "defaultValue": [
+          "A",
+          "B"
+        ]
+      },
+      "array_2": {
+        "type": "Array"
+      }
+    }
+  }
+}
