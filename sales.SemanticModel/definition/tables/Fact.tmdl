@@ -1,0 +1,148 @@
+table Fact
+	lineageTag: 7dd49172-b629-4040-8382-1fd985bf16f0
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 24b51633-bfc2-4d53-a4de-2f49aae25bd6
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 3cf64d54-6f60-4aa9-b7a1-b6dcbdbc7f8f
+			defaultHierarchy: LocalDateTable_22ed2f10-3460-4b43-a866-655067f5807d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ProductId
+		dataType: int64
+		formatString: 0
+		lineageTag: 463117a9-b570-457b-8103-884432b95775
+		summarizeBy: count
+		sourceColumn: ProductId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Profit
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f8a9a5a-6c9c-4d9b-8857-1f98b58d65dd
+		summarizeBy: sum
+		sourceColumn: Profit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a1c25e0-5b49-4eef-915d-d3d8bf48409c
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column Margin
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ac8233a-d86b-496f-b0fc-57a2983cb5e7
+		summarizeBy: sum
+		sourceColumn: Margin
+
+		annotation SummarizationSetBy = Automatic
+
+	column COGS
+		dataType: int64
+		formatString: 0
+		lineageTag: 256b5c10-5547-451b-bbfb-54128536df97
+		summarizeBy: sum
+		sourceColumn: COGS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Expenses'
+		dataType: int64
+		formatString: 0
+		lineageTag: 64b58b0b-21a4-41ab-a6f3-c9d6865bd21c
+		summarizeBy: sum
+		sourceColumn: Total Expenses
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marketing
+		dataType: int64
+		formatString: 0
+		lineageTag: 397f8210-000c-440c-b6e0-54320b308493
+		summarizeBy: sum
+		sourceColumn: Marketing
+
+		annotation SummarizationSetBy = Automatic
+
+	column Inventory
+		dataType: int64
+		formatString: 0
+		lineageTag: ff8bf3e8-d718-4427-b6b1-c599f78ea051
+		summarizeBy: sum
+		sourceColumn: Inventory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Budget Profit'
+		dataType: int64
+		formatString: 0
+		lineageTag: c0115fa3-8706-42c6-8a76-ba45452a0119
+		summarizeBy: sum
+		sourceColumn: Budget Profit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Budget COGS'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c344455-4c3a-4c02-87c7-a8e3722a66b5
+		summarizeBy: sum
+		sourceColumn: Budget COGS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Budget Margin'
+		dataType: int64
+		formatString: 0
+		lineageTag: 542a6358-0d9a-4c17-a83a-e65f674a39e0
+		summarizeBy: sum
+		sourceColumn: Budget Margin
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Budget Sales'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5265ef94-18cd-4c7c-9502-4c97f098f347
+		summarizeBy: sum
+		sourceColumn: Budget Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Area Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: 33491ce4-f01d-4504-96df-8c7faea769d9
+		summarizeBy: count
+		sourceColumn: Area Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\rgane\Downloads\dataset and the question-20240512T154751Z-001\dataset and the question\Fact.csv"),[Delimiter=",", Columns=14, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"ProductId", Int64.Type}, {"Profit", Int64.Type}, {"Sales", Int64.Type}, {"Margin", Int64.Type}, {"COGS", Int64.Type}, {"Total Expenses", Int64.Type}, {"Marketing", Int64.Type}, {"Inventory", Int64.Type}, {"Budget Profit", Int64.Type}, {"Budget COGS", Int64.Type}, {"Budget Margin", Int64.Type}, {"Budget Sales", Int64.Type}, {"Area Code", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

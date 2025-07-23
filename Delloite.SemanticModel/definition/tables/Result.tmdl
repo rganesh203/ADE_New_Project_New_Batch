@@ -1,0 +1,30 @@
+table Result
+	lineageTag: e35b0295-74cf-4137-863d-1a5e919bafd2
+
+	column Country
+		lineageTag: 22d10fe5-eeb5-41a0-a1d3-d0596ef71af1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Sheet1[Country]
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		lineageTag: 167f9ef2-2432-4fe8-8730-d12c6bb3cfe7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Sheet1[City]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Result = calculated
+		mode: import
+		source =
+				
+				var data_1 =SUMMARIZE(Sheet1,Sheet1[Country], Sheet1[City])
+				var data_2 =SUMMARIZE(Sheet2,Sheet2[Country],Sheet2[City])
+				var allrows=Union(data_1,data_2)
+				RETURN allrows
+
+	annotation PBI_Id = 46c62a9bcb88497b80705f52cb19e7da
+

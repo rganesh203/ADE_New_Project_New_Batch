@@ -1,0 +1,8 @@
+relationship AutoDetected_c6df229d-1e77-42f5-ae11-5c038fe00d87
+	fromColumn: Sheet1.City
+	toColumn: Sheet3.City
+
+relationship AutoDetected_448c2904-63eb-41f8-8e2c-71d3898e7cf0
+	fromColumn: Sheet2.City
+	toColumn: Sheet3.City
+

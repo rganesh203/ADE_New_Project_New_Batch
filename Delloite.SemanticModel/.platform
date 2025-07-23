@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Delloite"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6b0e2628-15c6-8db0-43a3-747a838950a8"
+  }
+}

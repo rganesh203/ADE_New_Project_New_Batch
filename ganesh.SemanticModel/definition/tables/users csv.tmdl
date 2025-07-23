@@ -1,0 +1,67 @@
+table 'users csv'
+	lineageTag: 079eeac3-2360-4c1c-b01e-4e81fd20ba51
+
+	column 'User Name'
+		dataType: string
+		lineageTag: 80d2636a-03ea-41d1-86ed-5b0e8fc8d66a
+		summarizeBy: none
+		sourceColumn: User Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'User Mail_ID'
+		dataType: string
+		lineageTag: 660f8e73-a4e4-44a2-9cfb-988a0116c17f
+		summarizeBy: none
+		sourceColumn: User Mail_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Display name'
+		dataType: string
+		lineageTag: 171e5b84-052a-4dd3-a9c6-e8eda6f6056c
+		summarizeBy: none
+		sourceColumn: Display name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Username
+		dataType: string
+		lineageTag: 66b1b826-8282-47e6-86c5-515f70b31de4
+		summarizeBy: none
+		sourceColumn: Username
+
+		annotation SummarizationSetBy = Automatic
+
+	column Password
+		dataType: string
+		lineageTag: 1e2bba0b-e779-4fac-8421-9a4368cf2436
+		summarizeBy: none
+		sourceColumn: Password
+
+		annotation SummarizationSetBy = Automatic
+
+	column Licenses
+		dataType: string
+		lineageTag: 27b4e4f1-d417-411f-8e16-8f9f843e9ae8
+		summarizeBy: none
+		sourceColumn: Licenses
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'users csv' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\rgane\OneDrive\Documents\users.xlsm"), null, true),
+				    users.csv_Sheet = Source{[Item="users.csv",Kind="Sheet"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(users.csv_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"User Name", type text}, {"User Mail_ID", type text}, {"Display name", type text}, {"Username", type text}, {"Password", type text}, {"Licenses", type text}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

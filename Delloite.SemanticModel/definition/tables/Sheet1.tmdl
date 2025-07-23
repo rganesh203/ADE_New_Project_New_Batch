@@ -1,0 +1,41 @@
+table Sheet1
+	lineageTag: 4e59c69f-227a-446c-863e-7754700a7782
+
+	column Country
+		dataType: string
+		lineageTag: 912ef314-29e6-4edb-bc47-057d0fb5ca54
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: ff756689-7155-4a3f-8be9-d683d6912b78
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transactions
+		dataType: int64
+		formatString: 0
+		lineageTag: 32a499b2-4882-4122-a368-cf647e1ee7df
+		summarizeBy: sum
+		sourceColumn: Transactions
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sheet1 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\rgane\Downloads\Deloitte Ques 08_2024.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Country", type text}, {"City", type text}, {"Transactions", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
