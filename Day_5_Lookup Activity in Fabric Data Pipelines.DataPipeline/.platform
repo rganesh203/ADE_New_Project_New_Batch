@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Day_5_Lookup Activity in Fabric Data Pipelines"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dc9b683a-9574-b4c1-499e-0b1a8f843475"
+  }
+}
