@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Use Lookup Activity to Load Files Dynamically in Pipeline "
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d7207322-460d-8207-4578-6cb6d5fbd179"
+  }
+}
