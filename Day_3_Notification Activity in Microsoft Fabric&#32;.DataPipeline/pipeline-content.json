@@ -1,0 +1,110 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "GetMetadata",
+        "typeProperties": {
+          "datasetSettings": {
+            "type": "DelimitedText",
+            "typeProperties": {
+              "location": {
+                "type": "LakehouseLocation",
+                "folderPath": "Emp_Dept"
+              },
+              "columnDelimiter": ",",
+              "quoteChar": "\"",
+              "escapeChar": "\\",
+              "firstRowAsHeader": true
+            },
+            "schema": [],
+            "linkedService": {
+              "name": "Lakehouse_for_files",
+              "properties": {
+                "type": "Lakehouse",
+                "typeProperties": {
+                  "artifactId": "0db3ba47-3a72-939c-4965-4ba64ea02a8a",
+                  "workspaceId": "00000000-0000-0000-0000-000000000000",
+                  "rootFolder": "Files"
+                },
+                "annotations": []
+              }
+            },
+            "annotations": []
+          },
+          "fieldList": [
+            "childItems"
+          ],
+          "storeSettings": {
+            "type": "LakehouseReadSettings",
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {
+            "type": "DelimitedTextReadSettings"
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Get Metadata1",
+        "dependsOn": []
+      },
+      {
+        "type": "SetVariable",
+        "typeProperties": {
+          "variableName": "size",
+          "value": {
+            "value": "@length(activity('Get Metadata1').output.childItems)",
+            "type": "Expression"
+          }
+        },
+        "policy": {
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Set variable1",
+        "dependsOn": [
+          {
+            "activity": "Get Metadata1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Office365Outlook",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "To": "rganeshbi203@outlook.com",
+              "Subject": "@concat('success', pipeline().Pipeline, 'Status: ')",
+              "Body": "<p>@concat(</p>\n<p>&nbsp;&nbsp;'Hello Team,', '\\n\\n',</p>\n<p>&nbsp;&nbsp;'The pipeline ', pipeline().Pipeline, ' has completed execution.', '\\n',</p>\n<p>&nbsp;&nbsp;'Status: ', pipeline().RunStatus, '\\n',</p>\n<p>&nbsp;&nbsp;'Run ID: ', pipeline().RunId, '\\n',</p>\n<p>&nbsp;&nbsp;'Start Time: ', pipeline().RunStart, '\\n',</p>\n<p>&nbsp;&nbsp;'End Time: ', pipeline().RunEnd, '\\n\\n',</p>\n<p>&nbsp;&nbsp;'Regards,', '\\n',</p>\n<p>&nbsp;&nbsp;'Data Engineering Team'</p>\n<p>)</p>\n<p><br></p>",
+              "Sensitivity": "",
+              "Importance": "Normal"
+            },
+            "method": "post",
+            "path": "/v2/Mail"
+          }
+        },
+        "name": "Office 365 Outlook1",
+        "dependsOn": [
+          {
+            "activity": "Set variable1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ],
+    "variables": {
+      "size": {
+        "type": "Integer"
+      }
+    }
+  }
+}

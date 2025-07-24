@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Day_3_Notification Activity in Microsoft Fabric "
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9a17b40c-c13e-b1d7-487c-ff35a6fc0f3f"
+  }
+}
