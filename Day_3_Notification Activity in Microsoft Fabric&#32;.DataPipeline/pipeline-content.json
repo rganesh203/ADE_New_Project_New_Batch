@@ -80,7 +80,7 @@
         "typeProperties": {
           "inputs": {
             "body": {
-              "To": "rganeshbi203@outlook.com",
+              "To": "radharam.g@technogenindia.com",
               "Subject": "@concat('success', pipeline().Pipeline, 'Status: ')",
               "Body": "<p>@concat(</p>\n<p>&nbsp;&nbsp;'Hello Team,', '\\n\\n',</p>\n<p>&nbsp;&nbsp;'The pipeline ', pipeline().Pipeline, ' has completed execution.', '\\n',</p>\n<p>&nbsp;&nbsp;'Status: ', pipeline().RunStatus, '\\n',</p>\n<p>&nbsp;&nbsp;'Run ID: ', pipeline().RunId, '\\n',</p>\n<p>&nbsp;&nbsp;'Start Time: ', pipeline().RunStart, '\\n',</p>\n<p>&nbsp;&nbsp;'End Time: ', pipeline().RunEnd, '\\n\\n',</p>\n<p>&nbsp;&nbsp;'Regards,', '\\n',</p>\n<p>&nbsp;&nbsp;'Data Engineering Team'</p>\n<p>)</p>\n<p><br></p>",
               "Sensitivity": "",
