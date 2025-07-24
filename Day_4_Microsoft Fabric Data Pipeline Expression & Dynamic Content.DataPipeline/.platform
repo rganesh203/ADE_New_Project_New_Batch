@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Day_4_Microsoft Fabric Data Pipeline Expression & Dynamic Content"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d584df38-51bf-839b-4757-3809ecb888d9"
+  }
+}
