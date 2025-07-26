@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Ingest AirlLabs_API Data Dynamically"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7dc291fb-a77e-b35c-4b11-5e8c520132d1"
+  }
+}

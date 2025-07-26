@@ -1,0 +1,132 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "WebActivity",
+        "typeProperties": {
+          "method": "GET",
+          "relativeUrl": {
+            "value": "@concat('flights?api_key=',pipeline().parameters.API_Key)",
+            "type": "Expression"
+          },
+          "headers": {}
+        },
+        "externalReferences": {
+          "connection": "47b6306b-9066-4ae7-b8a1-16b6c48cc2fe"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Web1",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "RestSource",
+            "requestMethod": "GET",
+            "paginationRules": {
+              "supportRFC5988": "true"
+            },
+            "httpRequestTimeout": "00:01:40",
+            "requestInterval": "00.00:00:00.010",
+            "datasetSettings": {
+              "type": "RestResource",
+              "typeProperties": {
+                "relativeUrl": "@concat('flights?api_key=',pipeline().parameters.API_Key)"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "47b6306b-9066-4ae7-b8a1-16b6c48cc2fe"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "JsonSink",
+            "formatSettings": {
+              "type": "JsonWriteSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "Json",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": {
+                    "value": "@concat('Bronze/AirLab/', formatDateTime(pipeline().TriggerTime, 'yyyy'), '/', formatDateTime(pipeline().TriggerTime, 'MM'), '/', formatDateTime(pipeline().TriggerTime, 'dd'), '/')",
+                    "type": "Expression"
+                  },
+                  "fileName": {
+                    "value": "@concat('flight-',pipeline().parameters.Location,'-',formatDateTime(pipeline().TriggerTime,'yyyy'),'-', formatDateTime(pipeline().TriggerTime,'MM'),'-', formatDateTime(pipeline().TriggerTime,'dd'),'.json')",
+                    "type": "Expression"
+                  }
+                }
+              },
+              "schema": {},
+              "linkedService": {
+                "name": "Lakehouse_for_files",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "0db3ba47-3a72-939c-4965-4ba64ea02a8a",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy data1",
+        "dependsOn": [
+          {
+            "activity": "Web1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ],
+    "parameters": {
+      "API_Key": {
+        "type": "String",
+        "defaultValue": "0dd5c699-454f-4091-a1e0-7ba5a562a621"
+      },
+      "Location": {
+        "type": "String",
+        "defaultValue": "Hyderabad"
+      },
+      "Country_code": {
+        "type": "string",
+        "defaultValue": "IN"
+      },
+      "url": {
+        "type": "String"
+      }
+    },
+    "variables": {
+      "data": {
+        "type": "Array"
+      }
+    }
+  }
+}
