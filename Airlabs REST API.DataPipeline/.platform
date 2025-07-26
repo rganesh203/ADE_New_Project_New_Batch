@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Airlabs REST API"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6af6cb0b-6f22-9e70-45bd-279bd8cc84f0"
+  }
+}
