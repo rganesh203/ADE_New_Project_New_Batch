@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "How to append only Incremental data using Data Pipeline in Lakehouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ee0a13cd-6bb7-9519-4a0a-951f3d5f0a37"
+  }
+}

@@ -139,7 +139,7 @@
       },
       "som": {
         "type": "string",
-        "defaultValue": "KJFK"
+        "defaultValue": "EGLL"
       }
     }
   }
