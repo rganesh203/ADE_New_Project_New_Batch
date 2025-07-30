@@ -1,0 +1,139 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "SetVariable",
+        "typeProperties": {
+          "variableName": "lenght",
+          "value": {
+            "value": "@length(activity('Get Metadata1').output.childItems)\n\n",
+            "type": "Expression"
+          }
+        },
+        "policy": {
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Set variable1",
+        "dependsOn": [
+          {
+            "activity": "Get Metadata1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Office365Outlook",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "To": "radharam.g@technogenindia.com",
+              "Subject": "Job Success",
+              "Body": "<p>@concat(</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;'Hello Team,', '\\n\\n',</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;'Total Files: ', string(length(activity('GetMetadata1').output.childItems)), '\\n',</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;'File List: ', join(select(activity('GetMetadata1').output.childItems, item().name), ', '), '\\n\\n',</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;'Regards,', '\\n',</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;'ADF Pipeline'</p>\n<p>)</p>\n<p><br></p>\n<p><br></p>",
+              "Sensitivity": "",
+              "Importance": "Normal"
+            },
+            "method": "post",
+            "path": "/v2/Mail"
+          }
+        },
+        "name": "Office 365 Outlook1",
+        "dependsOn": [
+          {
+            "activity": "Set variable2",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "SetVariable",
+        "typeProperties": {
+          "variableName": "arraylist",
+          "value": {
+            "value": "@activity('Get Metadata1').output.childItems",
+            "type": "Expression"
+          }
+        },
+        "policy": {
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Set variable2",
+        "dependsOn": [
+          {
+            "activity": "Set variable1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "GetMetadata",
+        "typeProperties": {
+          "datasetSettings": {
+            "type": "DelimitedText",
+            "typeProperties": {
+              "location": {
+                "type": "LakehouseLocation",
+                "folderPath": "Emp_Dept"
+              },
+              "columnDelimiter": ",",
+              "quoteChar": "\"",
+              "escapeChar": "\\",
+              "firstRowAsHeader": true
+            },
+            "schema": [],
+            "linkedService": {
+              "name": "Lakehouse_for_files",
+              "properties": {
+                "type": "Lakehouse",
+                "typeProperties": {
+                  "artifactId": "0db3ba47-3a72-939c-4965-4ba64ea02a8a",
+                  "workspaceId": "00000000-0000-0000-0000-000000000000",
+                  "rootFolder": "Files"
+                },
+                "annotations": []
+              }
+            },
+            "annotations": []
+          },
+          "fieldList": [
+            "childItems"
+          ],
+          "storeSettings": {
+            "type": "LakehouseReadSettings",
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {
+            "type": "DelimitedTextReadSettings"
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Get Metadata1",
+        "dependsOn": []
+      }
+    ],
+    "variables": {
+      "count": {
+        "type": "String"
+      },
+      "lenght": {
+        "type": "Integer"
+      },
+      "arraylist": {
+        "type": "Array"
+      }
+    }
+  }
+}

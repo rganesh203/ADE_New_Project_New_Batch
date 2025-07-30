@@ -403,6 +403,72 @@
         ]
       },
       {
+        "name": "dept-2025-07-30",
+        "sourceLineageTag": "[dbo].[dept-2025-07-30]",
+        "columns": [
+          {
+            "name": "dept_id",
+            "dataType": "string",
+            "sourceColumn": "dept_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "dept_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "dept_name",
+            "dataType": "string",
+            "sourceColumn": "dept_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "dept_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "location",
+            "dataType": "string",
+            "sourceColumn": "location",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "location",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "dept-2025-07-30",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
         "name": "dept",
         "sourceLineageTag": "[dbo].[dept]",
         "columns": [

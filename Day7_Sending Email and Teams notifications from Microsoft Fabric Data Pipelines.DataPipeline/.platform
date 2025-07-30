@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Day7_Sending Email and Teams notifications from Microsoft Fabric Data Pipelines"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d8fc5ad9-e5b3-9e4a-4e09-832583d8f16d"
+  }
+}
