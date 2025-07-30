@@ -47,7 +47,10 @@
                   "datasetSettings": {
                     "type": "RestResource",
                     "typeProperties": {
-                      "relativeUrl": "@concat(pipeline().parameters.BaseUrl, '?dep_icao=', item(), '&api_key=', pipeline().parameters.ApiKey)"
+                      "relativeUrl": {
+                        "value": "@concat(pipeline().parameters.BaseUrl, '?dep_icao=', item(), '&api_key=', pipeline().parameters.ApiKey)",
+                        "type": "Expression"
+                      }
                     },
                     "schema": [],
                     "externalReferences": {
@@ -139,7 +142,7 @@
       },
       "som": {
         "type": "string",
-        "defaultValue": "EGLL"
+        "defaultValue": "KJFK"
       }
     }
   }
