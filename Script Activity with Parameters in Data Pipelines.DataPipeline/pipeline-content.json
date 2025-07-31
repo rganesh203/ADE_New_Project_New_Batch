@@ -1,0 +1,42 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Script1",
+        "type": "Script",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "linkedService": {
+          "name": "WH_Table",
+          "properties": {
+            "annotations": [],
+            "type": "DataWarehouse",
+            "typeProperties": {
+              "endpoint": "6a62gxp7mqtuvap26i7bqlvmim-csr3i4nk22puvdkyeewkn3d2zy.datawarehouse.fabric.microsoft.com",
+              "artifactId": "bfeb9fee-509d-4258-975c-fc8f8a05be9b",
+              "workspaceId": "71b4a314-d6aa-4a9f-8d58-212ca6ec7ace"
+            }
+          }
+        },
+        "typeProperties": {
+          "scripts": [
+            {
+              "type": "Query",
+              "text": {
+                "value": "INSERT INTO [WH_Table].[dbo].[dept-2025-07-30] ([dept_id], [dept_name], [location])\nVALUES\n    (11, 'Dept11', 'Aus')",
+                "type": "Expression"
+              }
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        }
+      }
+    ]
+  }
+}

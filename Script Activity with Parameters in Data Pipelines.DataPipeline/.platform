@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Script Activity with Parameters in Data Pipelines"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "62851d8c-fb15-80a0-4e48-448403720559"
+  }
+}
