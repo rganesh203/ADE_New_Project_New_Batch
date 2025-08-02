@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "CopyJob",
-    "displayName": "Incremental_Copy_Table_Data"
+    "displayName": "Incremental_Copy_CSV"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "e4702238-29ff-a0e7-4958-8d2c22065907"
+    "logicalId": "c1efe2e1-ba02-9907-446c-3c39a4e4bd85"
   }
 }

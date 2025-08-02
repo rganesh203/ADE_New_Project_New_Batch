@@ -1,0 +1,176 @@
+{
+  "properties": {
+    "jobMode": "CDC",
+    "source": {
+      "type": "DataWarehouseTable",
+      "connectionSettings": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "71b4a314-d6aa-4a9f-8d58-212ca6ec7ace",
+          "artifactId": "bfeb9fee-509d-4258-975c-fc8f8a05be9b",
+          "endPoint": "6a62gxp7mqtuvap26i7bqlvmim-csr3i4nk22puvdkyeewkn3d2zy.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    },
+    "destination": {
+      "type": "DelimitedText",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "18b10713-bce0-4221-ba41-9882436ea6d9",
+          "artifactId": "57fc23d8-6262-440f-b576-b539c0408034",
+          "rootFolder": "Files"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00"
+    }
+  },
+  "activities": [
+    {
+      "id": "b2e630f2-9f1b-4529-af14-3d1a687ea615",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "customers"
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental",
+            "columns": [
+              {
+                "name": "customer_id",
+                "type": "Int32",
+                "physicalType": "int"
+              }
+            ]
+          }
+        },
+        "destination": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation",
+              "fileName": "customers.csv",
+              "folderPath": "Raw_Layer"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+          },
+          "storeSettings": {},
+          "formatSettings": {
+            "fileExtension": ".txt"
+          }
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "8a866ed0-0009-422c-ad3a-7f554da49166",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "orders"
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental",
+            "columns": [
+              {
+                "name": "ORDER_TIMESTAMP",
+                "type": "DateTime",
+                "physicalType": "datetime2"
+              }
+            ]
+          }
+        },
+        "destination": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation",
+              "fileName": "orders.csv",
+              "folderPath": "Raw_Layer"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+          },
+          "storeSettings": {},
+          "formatSettings": {
+            "fileExtension": ".txt"
+          }
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "c7eaf9f7-a30f-467f-b64a-429de9c7db5b",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "products"
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental",
+            "columns": [
+              {
+                "name": "UPDATE_TIMESTAMP",
+                "type": "DateTime",
+                "physicalType": "datetime2"
+              }
+            ]
+          }
+        },
+        "destination": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation",
+              "fileName": "products.csv",
+              "folderPath": "Raw_Layer"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+          },
+          "storeSettings": {},
+          "formatSettings": {
+            "fileExtension": ".txt"
+          }
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}
