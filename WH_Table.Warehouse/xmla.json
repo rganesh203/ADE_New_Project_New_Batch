@@ -871,6 +871,73 @@
         ]
       },
       {
+        "name": "customers",
+        "sourceLineageTag": "[dbo].[customers]",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dataType": "int64",
+            "sourceColumn": "customer_id",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "customer_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "customer_name",
+            "dataType": "string",
+            "sourceColumn": "customer_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "customer_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "customer_email",
+            "dataType": "string",
+            "sourceColumn": "customer_email",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "customer_email",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "customers",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
         "name": "dept-2025-07-30",
         "sourceLineageTag": "[dbo].[dept-2025-07-30]",
         "columns": [
@@ -1124,6 +1191,187 @@
             "source": {
               "type": "entity",
               "entityName": "file_load_status",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "orders",
+        "sourceLineageTag": "[dbo].[orders]",
+        "columns": [
+          {
+            "name": "order_id",
+            "dataType": "int64",
+            "sourceColumn": "order_id",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "order_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "customer_id",
+            "dataType": "int64",
+            "sourceColumn": "customer_id",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "customer_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "product_id",
+            "dataType": "int64",
+            "sourceColumn": "product_id",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "product_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "order_date",
+            "dataType": "dateTime",
+            "sourceColumn": "order_date",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "order_date",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ORDER_TIMESTAMP",
+            "dataType": "dateTime",
+            "sourceColumn": "ORDER_TIMESTAMP",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "ORDER_TIMESTAMP",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "orders",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "products",
+        "sourceLineageTag": "[dbo].[products]",
+        "columns": [
+          {
+            "name": "product_id",
+            "dataType": "int64",
+            "sourceColumn": "product_id",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "product_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "product_name",
+            "dataType": "string",
+            "sourceColumn": "product_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "product_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "product_price",
+            "dataType": "decimal",
+            "sourceColumn": "product_price",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "product_price",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "UPDATE_TIMESTAMP",
+            "dataType": "dateTime",
+            "sourceColumn": "UPDATE_TIMESTAMP",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "UPDATE_TIMESTAMP",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "products",
               "expressionSource": "DatabaseQuery",
               "schemaName": "dbo"
             }

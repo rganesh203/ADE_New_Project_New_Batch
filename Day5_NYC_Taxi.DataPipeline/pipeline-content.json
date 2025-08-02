@@ -1,0 +1,168 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "ForEach1",
+        "type": "ForEach",
+        "dependsOn": [],
+        "typeProperties": {
+          "items": {
+            "value": "@range(1,12)",
+            "type": "Expression"
+          },
+          "isSequential": true,
+          "activities": [
+            {
+              "name": "If Condition1",
+              "type": "IfCondition",
+              "dependsOn": [],
+              "typeProperties": {
+                "expression": {
+                  "value": "@greater(item(),9)",
+                  "type": "Expression"
+                },
+                "ifFalseActivities": [
+                  {
+                    "name": "Copy data1_copy1",
+                    "type": "Copy",
+                    "dependsOn": [],
+                    "policy": {
+                      "timeout": "0.12:00:00",
+                      "retry": 0,
+                      "retryIntervalInSeconds": 30,
+                      "secureOutput": false,
+                      "secureInput": false
+                    },
+                    "typeProperties": {
+                      "source": {
+                        "type": "BinarySource",
+                        "storeSettings": {
+                          "type": "HttpReadSettings",
+                          "requestMethod": "GET"
+                        },
+                        "formatSettings": {
+                          "type": "BinaryReadSettings"
+                        },
+                        "datasetSettings": {
+                          "annotations": [],
+                          "type": "Binary",
+                          "typeProperties": {
+                            "location": {
+                              "type": "HttpServerLocation"
+                            }
+                          },
+                          "externalReferences": {
+                            "connection": "d8ba5686-fceb-4659-bf2c-a010749e4ce8"
+                          }
+                        }
+                      },
+                      "sink": {
+                        "type": "BinarySink",
+                        "storeSettings": {
+                          "type": "LakehouseWriteSettings"
+                        },
+                        "datasetSettings": {
+                          "annotations": [],
+                          "linkedService": {
+                            "name": "Lakehouse_Project",
+                            "properties": {
+                              "annotations": [],
+                              "type": "Lakehouse",
+                              "typeProperties": {
+                                "workspaceId": "18b10713-bce0-4221-ba41-9882436ea6d9",
+                                "artifactId": "57fc23d8-6262-440f-b576-b539c0408034",
+                                "rootFolder": "Files"
+                              }
+                            }
+                          },
+                          "type": "Binary",
+                          "typeProperties": {
+                            "location": {
+                              "type": "LakehouseLocation"
+                            }
+                          }
+                        }
+                      },
+                      "enableStaging": false
+                    }
+                  }
+                ],
+                "ifTrueActivities": [
+                  {
+                    "name": "Copy data1",
+                    "type": "Copy",
+                    "dependsOn": [],
+                    "policy": {
+                      "timeout": "0.12:00:00",
+                      "retry": 0,
+                      "retryIntervalInSeconds": 30,
+                      "secureOutput": false,
+                      "secureInput": false
+                    },
+                    "typeProperties": {
+                      "source": {
+                        "type": "BinarySource",
+                        "storeSettings": {
+                          "type": "HttpReadSettings",
+                          "requestMethod": "GET"
+                        },
+                        "formatSettings": {
+                          "type": "BinaryReadSettings"
+                        },
+                        "datasetSettings": {
+                          "annotations": [],
+                          "type": "Binary",
+                          "typeProperties": {
+                            "location": {
+                              "type": "HttpServerLocation"
+                            }
+                          },
+                          "externalReferences": {
+                            "connection": "d8ba5686-fceb-4659-bf2c-a010749e4ce8"
+                          }
+                        }
+                      },
+                      "sink": {
+                        "type": "BinarySink",
+                        "storeSettings": {
+                          "type": "LakehouseWriteSettings"
+                        },
+                        "datasetSettings": {
+                          "annotations": [],
+                          "linkedService": {
+                            "name": "Lakehouse_Project",
+                            "properties": {
+                              "annotations": [],
+                              "type": "Lakehouse",
+                              "typeProperties": {
+                                "workspaceId": "18b10713-bce0-4221-ba41-9882436ea6d9",
+                                "artifactId": "57fc23d8-6262-440f-b576-b539c0408034",
+                                "rootFolder": "Files"
+                              }
+                            }
+                          },
+                          "type": "Binary",
+                          "typeProperties": {
+                            "location": {
+                              "type": "LakehouseLocation"
+                            }
+                          }
+                        }
+                      },
+                      "enableStaging": false
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "parameters": {
+      "p_month": {
+        "type": "String"
+      }
+    }
+  }
+}

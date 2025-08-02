@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Day_10 Incremental Data Copy!"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6402f171-9a3f-b50d-4d67-3f4804c9437a"
+  }
+}
