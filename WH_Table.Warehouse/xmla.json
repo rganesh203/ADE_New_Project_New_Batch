@@ -1204,6 +1204,86 @@
         ]
       },
       {
+        "name": "month_20250803_141116",
+        "sourceLineageTag": "[dbo].[month_20250803_141116]",
+        "columns": [
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Abbreviation",
+            "dataType": "string",
+            "sourceColumn": "Abbreviation",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Abbreviation",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Numeric",
+            "dataType": "string",
+            "sourceColumn": "Numeric",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Numeric",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Numeric-2",
+            "dataType": "string",
+            "sourceColumn": "Numeric-2",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Numeric-2",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "month_20250803_141116",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
         "name": "orders",
         "sourceLineageTag": "[dbo].[orders]",
         "columns": [
