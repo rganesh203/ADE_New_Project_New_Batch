@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Delete more than 100KB from"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "bed4f5cd-a8d1-874c-4881-295d49855e2a"
+  }
+}
