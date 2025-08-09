@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Copy new and changed files by LastModifiedDate"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "72de9d1e-dd14-b743-4e00-af478b0a119f"
+  }
+}

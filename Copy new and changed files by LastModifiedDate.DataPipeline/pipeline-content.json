@@ -1,0 +1,304 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "GetMetadata",
+        "typeProperties": {
+          "datasetSettings": {
+            "type": "DelimitedText",
+            "typeProperties": {
+              "location": {
+                "type": "LakehouseLocation",
+                "folderPath": "Sample"
+              },
+              "columnDelimiter": ",",
+              "quoteChar": "\"",
+              "escapeChar": "\\",
+              "firstRowAsHeader": true
+            },
+            "schema": [],
+            "linkedService": {
+              "name": "Lakehouse_for_files",
+              "properties": {
+                "type": "Lakehouse",
+                "typeProperties": {
+                  "artifactId": "0db3ba47-3a72-939c-4965-4ba64ea02a8a",
+                  "workspaceId": "00000000-0000-0000-0000-000000000000",
+                  "rootFolder": "Files"
+                },
+                "annotations": []
+              }
+            },
+            "annotations": []
+          },
+          "fieldList": [
+            "childItems",
+            "lastModified"
+          ],
+          "storeSettings": {
+            "type": "LakehouseReadSettings",
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {
+            "type": "DelimitedTextReadSettings"
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Get Metadata1",
+        "dependsOn": []
+      },
+      {
+        "type": "ForEach",
+        "typeProperties": {
+          "isSequential": true,
+          "items": {
+            "value": "@activity('Get Metadata1').output.childItems",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "type": "GetMetadata",
+              "typeProperties": {
+                "datasetSettings": {
+                  "type": "DelimitedText",
+                  "typeProperties": {
+                    "location": {
+                      "type": "LakehouseLocation",
+                      "folderPath": "Sample",
+                      "fileName": {
+                        "value": "@item().name",
+                        "type": "Expression"
+                      }
+                    },
+                    "columnDelimiter": ",",
+                    "quoteChar": "\"",
+                    "escapeChar": "\\",
+                    "firstRowAsHeader": true
+                  },
+                  "schema": [],
+                  "linkedService": {
+                    "name": "Lakehouse_for_files",
+                    "properties": {
+                      "type": "Lakehouse",
+                      "typeProperties": {
+                        "artifactId": "0db3ba47-3a72-939c-4965-4ba64ea02a8a",
+                        "workspaceId": "00000000-0000-0000-0000-000000000000",
+                        "rootFolder": "Files"
+                      },
+                      "annotations": []
+                    }
+                  },
+                  "annotations": []
+                },
+                "fieldList": [
+                  "lastModified",
+                  "itemName"
+                ],
+                "storeSettings": {
+                  "type": "LakehouseReadSettings",
+                  "enablePartitionDiscovery": false
+                },
+                "formatSettings": {
+                  "type": "DelimitedTextReadSettings"
+                }
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Get Metadata2",
+              "dependsOn": []
+            },
+            {
+              "type": "IfCondition",
+              "typeProperties": {
+                "expression": {
+                  "value": "@greaterOrEquals(activity('Get Metadata2').output.lastModified,variables('Lastmodified'))",
+                  "type": "Expression"
+                },
+                "ifTrueActivities": [
+                  {
+                    "type": "SetVariable",
+                    "typeProperties": {
+                      "variableName": "latestfile",
+                      "value": {
+                        "value": "@activity('Get Metadata2').output.itemName",
+                        "type": "Expression"
+                      }
+                    },
+                    "policy": {
+                      "secureInput": false,
+                      "secureOutput": false
+                    },
+                    "name": "Set variable1",
+                    "dependsOn": []
+                  },
+                  {
+                    "type": "SetVariable",
+                    "typeProperties": {
+                      "variableName": "Lastmodified",
+                      "value": {
+                        "value": "@activity('Get Metadata1').output.lastModified",
+                        "type": "Expression"
+                      }
+                    },
+                    "policy": {
+                      "secureInput": false,
+                      "secureOutput": false
+                    },
+                    "name": "Set variable2",
+                    "dependsOn": [
+                      {
+                        "activity": "Set variable1",
+                        "dependencyConditions": [
+                          "Succeeded"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "ifFalseActivities": []
+              },
+              "name": "If Condition1",
+              "dependsOn": [
+                {
+                  "activity": "Get Metadata2",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "name": "ForEach1",
+        "dependsOn": [
+          {
+            "activity": "Get Metadata1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "Sample",
+                  "fileName": {
+                    "value": "@variables('latestfile')",
+                    "type": "Expression"
+                  }
+                },
+                "columnDelimiter": ",",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "Lakehouse_for_files",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "0db3ba47-3a72-939c-4965-4ba64ea02a8a",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "fileExtension": ".txt"
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "Staging"
+                },
+                "columnDelimiter": ",",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "Lakehouse_for_files",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "0db3ba47-3a72-939c-4965-4ba64ea02a8a",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy data2",
+        "dependsOn": [
+          {
+            "activity": "ForEach1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ],
+    "variables": {
+      "Lastmodified": {
+        "type": "String"
+      },
+      "latestfile": {
+        "type": "String"
+      }
+    }
+  }
+}
