@@ -1,0 +1,35 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "Read CSV Perform Joins t in Dataflow Gen2",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "new 4 csv": {
+      "queryId": "08c1560f-f5a1-46c1-96cf-70fc45fded16",
+      "queryName": "new 4 csv"
+    },
+    "new csv": {
+      "queryId": "a91146ac-c2e3-4dff-8447-03454d144dde",
+      "queryName": "new csv"
+    },
+    "new 4 csv_DataDestination": {
+      "queryId": "f281f357-2b83-470c-b99e-85b3d6c63859",
+      "queryName": "new 4 csv_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"f244e838-3479-4175-9877-57bf457c544b\",\"DatasourceId\":\"fd0a0081-61d5-4fb2-81d3-2eef9d936604\"}"
+    },
+    {
+      "path": "Warehouse",
+      "kind": "Warehouse",
+      "connectionId": "{\"ClusterId\":\"f244e838-3479-4175-9877-57bf457c544b\",\"DatasourceId\":\"45e275a3-b20e-454c-9363-d99cf2f87552\"}"
+    }
+  ]
+}
