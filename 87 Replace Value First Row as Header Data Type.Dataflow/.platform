@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "87 Replace Value First Row as Header Data Type"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dbf54cca-48a0-ab47-412e-71b2cef8d7db"
+  }
+}
