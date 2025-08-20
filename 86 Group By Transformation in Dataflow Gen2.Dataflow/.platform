@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "86 Group By Transformation in Dataflow Gen2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "59a1aba3-2a13-b8aa-4e56-49f9209a5151"
+  }
+}
