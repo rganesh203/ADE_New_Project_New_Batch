@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "90 Use Create Table in Dataflow Gen2 for Lookup Mapping Filtering"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0b13e753-e2c8-9f0f-4b3f-f91114dbe381"
+  }
+}

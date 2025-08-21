@@ -1,0 +1,35 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "90 Use Create Table in Dataflow Gen2 for Lookup Mapping Filtering",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "100 Sales Records csv": {
+      "queryId": "6874d4e8-d908-4789-bb6c-8d40fe77a2a5",
+      "queryName": "100 Sales Records csv"
+    },
+    "Region Table": {
+      "queryId": "ba93c115-6dc7-4435-b743-64be1ff4e72d",
+      "queryName": "Region Table"
+    },
+    "Region Table_DataDestination": {
+      "queryId": "b92c2c7d-cfe6-467f-b9cf-8807a3d98078",
+      "queryName": "Region Table_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"f244e838-3479-4175-9877-57bf457c544b\",\"DatasourceId\":\"fd0a0081-61d5-4fb2-81d3-2eef9d936604\"}"
+    },
+    {
+      "path": "Warehouse",
+      "kind": "Warehouse",
+      "connectionId": "{\"ClusterId\":\"f244e838-3479-4175-9877-57bf457c544b\",\"DatasourceId\":\"45e275a3-b20e-454c-9363-d99cf2f87552\"}"
+    }
+  ]
+}
