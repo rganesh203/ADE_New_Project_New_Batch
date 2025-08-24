@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "84 Read Lakehouse Apply Reduce Rows Filter Remove Duplicates"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8b9b7ab5-e181-8d1f-4172-b0db6140fc07"
+  }
+}

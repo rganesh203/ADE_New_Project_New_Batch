@@ -1,0 +1,20 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "85 Split Column Transformation in Dataflow Gen2",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "100 Sales Records csv": {
+      "queryId": "e6979920-f40c-497b-b527-5dda47a8daab",
+      "queryName": "100 Sales Records csv"
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"f244e838-3479-4175-9877-57bf457c544b\",\"DatasourceId\":\"fd0a0081-61d5-4fb2-81d3-2eef9d936604\"}"
+    }
+  ]
+}

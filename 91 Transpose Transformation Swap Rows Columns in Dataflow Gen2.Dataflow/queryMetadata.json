@@ -1,0 +1,31 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "91 Transpose Transformation Swap Rows Columns in Dataflow Gen2",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "sample csv": {
+      "queryId": "cc404632-7c93-4a48-83d8-12a529b7af4b",
+      "queryName": "sample csv"
+    },
+    "sample csv_DataDestination": {
+      "queryId": "fe92b223-527f-4d4b-bea7-02b02f022897",
+      "queryName": "sample csv_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"f244e838-3479-4175-9877-57bf457c544b\",\"DatasourceId\":\"fd0a0081-61d5-4fb2-81d3-2eef9d936604\"}"
+    },
+    {
+      "path": "Warehouse",
+      "kind": "Warehouse",
+      "connectionId": "{\"ClusterId\":\"f244e838-3479-4175-9877-57bf457c544b\",\"DatasourceId\":\"45e275a3-b20e-454c-9363-d99cf2f87552\"}"
+    }
+  ]
+}

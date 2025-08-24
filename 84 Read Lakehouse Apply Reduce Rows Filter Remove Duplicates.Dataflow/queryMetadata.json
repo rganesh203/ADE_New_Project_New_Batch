@@ -1,0 +1,31 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "84 Read Lakehouse Apply Reduce Rows Filter Remove Duplicates",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "100 Sales Records csv": {
+      "queryId": "bc385a61-c6e0-4b3a-91cd-08a1e73954bb",
+      "queryName": "100 Sales Records csv"
+    },
+    "100 Sales Records csv_DataDestination": {
+      "queryId": "68cda926-e56b-480b-be62-bd8ee0f4935f",
+      "queryName": "100 Sales Records csv_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"f244e838-3479-4175-9877-57bf457c544b\",\"DatasourceId\":\"fd0a0081-61d5-4fb2-81d3-2eef9d936604\"}"
+    },
+    {
+      "path": "Warehouse",
+      "kind": "Warehouse",
+      "connectionId": "{\"ClusterId\":\"f244e838-3479-4175-9877-57bf457c544b\",\"DatasourceId\":\"45e275a3-b20e-454c-9363-d99cf2f87552\"}"
+    }
+  ]
+}

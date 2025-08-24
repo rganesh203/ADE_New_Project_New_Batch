@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "91 Transpose Transformation Swap Rows Columns in Dataflow Gen2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2ee0f176-2547-acfb-4140-7b5718e4a80b"
+  }
+}

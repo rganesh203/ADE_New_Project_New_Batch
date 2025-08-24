@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "85 Split Column Transformation in Dataflow Gen2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7f0c6ec4-d775-92fb-4ee8-4e71bd79ffd8"
+  }
+}
