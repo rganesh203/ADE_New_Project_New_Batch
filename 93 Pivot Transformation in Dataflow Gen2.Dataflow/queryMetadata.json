@@ -1,0 +1,26 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "93 Pivot Transformation in Dataflow Gen2",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "Unpivot": {
+      "queryId": "840246d4-2b6d-43e5-80ed-adc7c99f1b2e",
+      "queryName": "Unpivot"
+    },
+    "Unpivot_DataDestination": {
+      "queryId": "184bcdc5-b29e-424f-929e-1dad84ab3826",
+      "queryName": "Unpivot_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Warehouse",
+      "kind": "Warehouse",
+      "connectionId": "{\"ClusterId\":\"f244e838-3479-4175-9877-57bf457c544b\",\"DatasourceId\":\"45e275a3-b20e-454c-9363-d99cf2f87552\"}"
+    }
+  ]
+}

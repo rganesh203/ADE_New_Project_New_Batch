@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "93 Pivot Transformation in Dataflow Gen2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "549dd4fe-0e87-a284-476b-e1a6ea3c2e95"
+  }
+}
