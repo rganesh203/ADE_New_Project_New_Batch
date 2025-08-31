@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "94 Fill Up  Fill Down to Handle Blanks in Dataflow Gen2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "20c36c61-256f-a7c5-4e3f-f7e40ff2f16a"
+  }
+}
