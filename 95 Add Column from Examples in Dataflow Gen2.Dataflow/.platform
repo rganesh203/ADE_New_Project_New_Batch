@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "95 Add Column from Examples in Dataflow Gen2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d86f1c42-1fc2-8c1f-4ddb-b79dd472acda"
+  }
+}
