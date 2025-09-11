@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "96 Custom Column Transformation in DataFlow Gen2 Add New Columns with Expressions Microsoft Fabric"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "60c2c6dd-3ff1-8181-47d6-77e3cbdb14ff"
+  }
+}
