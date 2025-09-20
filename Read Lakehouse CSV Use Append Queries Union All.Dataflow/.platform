@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "Read Lakehouse CSV Use Append Queries Union All"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "db6afda0-77a8-b3f5-4b44-622fec4f6556"
+  }
+}

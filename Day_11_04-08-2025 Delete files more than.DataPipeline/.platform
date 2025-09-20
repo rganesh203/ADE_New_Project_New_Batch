@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Day_11_04-08-2025 Delete files more than"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ad5f27a7-516f-93bb-4b69-f09ee0d58285"
+  }
+}

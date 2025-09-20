@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "Day12_load data from fixed length of csv"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b5169e81-49f7-a2e5-4bc2-74150ab88daf"
+  }
+}
