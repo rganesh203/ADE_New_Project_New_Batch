@@ -24,7 +24,7 @@
 
 df = spark.read.format("csv").option("header","true").load("Files/dept.csv")
 # df now is a Spark DataFrame containing CSV data from "Files/dept.csv".
-display(df)
+df.show()
 
 # METADATA ********************
 
