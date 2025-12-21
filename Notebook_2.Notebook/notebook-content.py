@@ -22,9 +22,6 @@
 
 # CELL ********************
 
-df = spark.read.format("csv").option("header","true").load("Files/ga/sales_data_sample.csv")
-# df now is a Spark DataFrame containing CSV data from "Files/ga/sales_data_sample.csv".
-display(df)
 
 # METADATA ********************
 
@@ -32,3 +29,7 @@ display(df)
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# MARKDOWN ********************
+
+# #print
