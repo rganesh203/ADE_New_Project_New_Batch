@@ -1,6 +1,7 @@
 {
   "properties": {
     "jobMode": "CDC",
+    "fullLoadBehavior": "None",
     "source": {
       "type": "DataWarehouseTable",
       "connectionSettings": {

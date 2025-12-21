@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/schedules/1.0.0/schema.json",
+  "schedules": [
+    {
+      "enabled": false,
+      "jobType": "Execute",
+      "configuration": {
+        "type": "Cron",
+        "startDateTime": "2025-08-02T12:32:53.942",
+        "endDateTime": "9998-12-31T18:30:00",
+        "localTimeZoneId": "India Standard Time",
+        "interval": 15
+      }
+    }
+  ]
+}

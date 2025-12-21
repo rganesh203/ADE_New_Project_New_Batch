@@ -142,7 +142,7 @@
       },
       "som": {
         "type": "string",
-        "defaultValue": "KLAX"
+        "defaultValue": "KJFK"
       }
     }
   }
